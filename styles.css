@@ -377,7 +377,7 @@ body{
 }
 .footer__line{
   color:rgba(233,236,245,.68);
-  font-size:18px;
+  font-size:14px;
   white-space:nowrap;
 }
 .footer__right{
@@ -385,7 +385,7 @@ body{
   align-items:center;
   gap:12px;
   color:rgba(233,236,245,.55);
-  font-size:18px;
+  font-size:14px;
   white-space:nowrap;
 }
 .footer__link{
