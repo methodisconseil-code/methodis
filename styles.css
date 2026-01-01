@@ -446,3 +446,91 @@ body{
     align-items:flex-start;
   }
 }
+/* =========================
+   FIX MAQUETTE (V1)
+   ========================= */
+
+/* 1) Logo en haut : s'assurer qu'il est visible + taille */
+.brand{
+  display: flex;
+  align-items: center;
+  color: #fff;            /* le SVG est en currentColor */
+  z-index: 10;
+}
+.brand__logo{
+  display: block;
+  width: 34px;            /* ajuste si besoin */
+  height: 34px;
+}
+
+/* 2) Soulignage "Bienvenue chez methodis" = largeur de la phrase (pas plus long) */
+.hero__welcome{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero__underline{
+  width: 100%;
+  max-width: 100%;
+  margin-top: 14px;
+}
+
+/* 3) Bloc Paris : picto + gros, plus bas, texte aligné à sa hauteur */
+.cabinetAside{
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.cabinetAside__icon{
+  flex: 0 0 auto;
+  margin-top: 14px;       /* le “plus bas” */
+}
+.cabinetAside__icon img{
+  width: 78px;            /* plus gros */
+  height: auto;
+  display: block;
+}
+.cabinetAside__text{
+  margin: 0;              /* évite les décalages bizarres */
+}
+
+/* 4) Footer : tout sur une seule ligne */
+.footer__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.footer__left{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.footer__line{
+  margin: 0;
+}
+.social{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer__right{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+/* Petit garde-fou mobile : autoriser le retour à la ligne proprement */
+@media (max-width: 760px){
+  .footer__inner{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__right{
+    white-space: normal;
+  }
+}
