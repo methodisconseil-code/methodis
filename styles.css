@@ -227,6 +227,7 @@ body{
 .cabinet__right{
   display:flex;
   justify-content:flex-start;
+  margin-top:120px;   /* FAIT DESCENDRE picto + texte ensemble */
 }
 
 /* ✅ Picto plus gros, plus bas, et texte aligné “à la hauteur du picto” */
@@ -238,7 +239,7 @@ body{
 }
 .cabinetAside__icon{
   flex:0 0 auto;
-  margin-top:80px;   /* descend réellement le picto */
+  margin-top:0;   /* OBLIGATOIRE */
 }
 .cabinetAside__icon img{
   width:120px;   /* plus grand, mais maîtrisé */
