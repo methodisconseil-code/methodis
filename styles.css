@@ -120,10 +120,8 @@ body{
   letter-spacing:.26em;
   font-weight:750;
   color:rgba(233,236,245,.88);
-  font-size:clamp(16px, 2.1vw, 34px);
+  font-size:clamp(18px, 2.1vw, 34px); /* IDENTIQUE à hero__welcomeText */
   white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .hero__title{
