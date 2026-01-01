@@ -160,7 +160,7 @@ body{
 
 /* Pills */
 .pillRow{
-  margin-top:60px;
+  margin-top:85px;
   display:flex;
   justify-content:center;
   gap:18px;
