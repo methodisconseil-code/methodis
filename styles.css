@@ -1,17 +1,16 @@
 :root{
   --bg:#0b0d12;
-  --card:#111526;
   --text:#e9ecf5;
   --muted:#a7b0c3;
   --line:rgba(255,255,255,.10);
-  --line2:rgba(255,255,255,.16);
   --shadow:0 20px 60px rgba(0,0,0,.45);
   --radius:22px;
   --max:1100px;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
 body{
   margin:0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -28,7 +27,7 @@ body{
   margin-inline:auto;
 }
 @media (max-width: 900px){
-  .wrap{ width: min(var(--max), calc(100% - 48px)); }
+  .wrap{ width:min(var(--max), calc(100% - 48px)); }
 }
 
 /* TOP BAR */
@@ -49,22 +48,19 @@ body{
   display:flex;
   align-items:center;
   text-decoration:none;
-  color:var(--text);
+  color:#fff;
 }
 .brand__logo{
-  width:52px;         /* plus gros */
+  width:52px;
   height:52px;
   display:block;
   opacity:.95;
 }
-
 .topbar__right{
   display:flex;
   align-items:center;
   gap:28px;
-  margin-left:auto;
 }
-
 .nav{
   display:flex;
   align-items:center;
@@ -96,15 +92,12 @@ body{
   color:var(--text);
   background:transparent;
 }
-
 .btn--contact{
   background:#fff;
   color:#0b0d12;
   border-color:transparent;
   padding:14px 28px;
-  margin-right:4px; /* évite “trop ferré à droite” */
 }
-
 .btn--primary{
   background:#fff;
   color:#0b0d12;
@@ -119,21 +112,17 @@ body{
 }
 
 /* HERO */
-.hero{
-  padding:92px 0 38px;
-}
-.hero__inner{
-  text-align:center;
-  padding-top:22px;
-}
+.hero{ padding:92px 0 38px; }
+.hero__inner{ text-align:center; padding-top:22px; }
+
 .hero__kicker{
   margin:0 0 22px;
   text-transform:uppercase;
   letter-spacing:.26em;
   font-weight:750;
   color:rgba(233,236,245,.88);
-  font-size:clamp(16px, 2.1vw, 34px); /* plus gros, mais garde 1 ligne */
-  white-space:nowrap;                 /* 1 seule ligne */
+  font-size:clamp(16px, 2.1vw, 34px);
+  white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
@@ -143,42 +132,38 @@ body{
   font-weight:800;
   line-height:1.02;
   letter-spacing:-.02em;
-  font-size:clamp(42px, 5.2vw, 66px); /* moins gros qu’avant */
+  font-size:clamp(42px, 5.2vw, 66px);
 }
 
+/* ✅ underline EXACTEMENT largeur du texte */
 .hero__welcome{
   margin-top:22px;
-  display:flex;
+  display:inline-flex;
   flex-direction:column;
   align-items:center;
   gap:10px;
+  width:fit-content;
+  margin-left:auto;
+  margin-right:auto;
 }
 .hero__welcomeText{
-  font-size:clamp(18px, 2.1vw, 34px); /* plus gros */
+  display:inline-block;
+  font-size:clamp(18px, 2.1vw, 34px);
   color:rgba(233,236,245,.92);
 }
 .hero__welcomeText strong{ color:#fff; font-weight:850; }
-
 .hero__underline{
   height:2px;
-  width:0;                   /* on “colle” à la largeur du texte via JS-free trick : */
+  width:100%;
   background:rgba(255,255,255,.78);
   border-radius:99px;
   display:block;
+  margin-top:14px;
 }
 
-/* underline = largeur du texte “Bienvenue…” */
-.hero__welcomeText{
-  position:relative;
-}
-.hero__welcomeText + .hero__underline{
-  width: calc(100% + 18px);  /* un petit débord comme un soulignage */
-  max-width: 560px;
-}
-
-/* Pills (plus d’air) */
+/* Pills */
 .pillRow{
-  margin-top:44px; /* aérer (trop proche avant) */
+  margin-top:44px;
   display:flex;
   justify-content:center;
   gap:18px;
@@ -197,9 +182,7 @@ body{
 }
 
 /* SECTIONS */
-.section{
-  padding:76px 0;
-}
+.section{ padding:76px 0; }
 .sectionDivider{
   height:1px;
   background:var(--line);
@@ -241,28 +224,27 @@ body{
 .cabinet{
   display:grid;
   grid-template-columns: 1.1fr .9fr;
-  gap:54px; /* plus proche (avant trop loin) */
+  gap:54px;
   align-items:start;
 }
 .cabinet__right{
   display:flex;
   justify-content:flex-start;
 }
+
+/* ✅ Picto plus gros, plus bas, et texte aligné “à la hauteur du picto” */
 .cabinetAside{
   display:flex;
-  gap:22px;
-  align-items:flex-start;
+  gap:26px;
+  align-items:center;     /* texte calé sur la hauteur du picto */
   margin-top:10px;
 }
 .cabinetAside__icon{
-  width:92px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:32px; /* descend le picto (trop haut) */
+  flex:0 0 auto;
+  margin-top:18px;        /* “plus bas” */
 }
 .cabinetAside__icon img{
-  width:64px;   /* plus gros */
+  width:88px;             /* plus gros */
   height:auto;
   opacity:.9;
   display:block;
@@ -282,10 +264,7 @@ body{
 }
 
 /* GRIDS */
-.grid{
-  display:grid;
-  gap:22px;
-}
+.grid{ display:grid; gap:22px; }
 .grid--2{ grid-template-columns:repeat(2, 1fr); }
 .grid--3{ grid-template-columns:repeat(3, 1fr); }
 .grid--4{ grid-template-columns:repeat(4, 1fr); }
@@ -319,7 +298,7 @@ body{
   line-height:1.85;
 }
 
-/* APPROCHE bar cards (3 x 2) */
+/* APPROCHE bar cards */
 .barCard{
   background: rgba(255,255,255,.03);
   border:1px solid rgba(255,255,255,.10);
@@ -373,11 +352,8 @@ body{
 .contact__inner{
   display:grid;
   grid-template-columns: 1fr auto;
-  align-items:center; /* bouton au niveau du corps */
+  align-items:center;
   gap:40px;
-}
-.contact__cta{
-  align-self:center; /* garantit l’alignement vertical */
 }
 @media (max-width: 980px){
   .contact__inner{ grid-template-columns:1fr; }
@@ -385,24 +361,26 @@ body{
 }
 
 /* FOOTER */
+/* ✅ tout sur une seule ligne */
 .footer{
   border-top:1px solid var(--line);
   padding:26px 0 34px;
 }
 .footer__inner{
   display:flex;
-  align-items:flex-end; /* tout au même niveau */
+  align-items:center;      /* même ligne */
   justify-content:space-between;
   gap:30px;
 }
 .footer__left{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+  display:flex;            /* gauche = copyright + icônes sur la même ligne */
+  align-items:center;
+  gap:22px;
 }
 .footer__line{
   color:rgba(233,236,245,.68);
   font-size:18px;
+  white-space:nowrap;
 }
 .footer__right{
   display:flex;
@@ -410,6 +388,7 @@ body{
   gap:12px;
   color:rgba(233,236,245,.55);
   font-size:18px;
+  white-space:nowrap;
 }
 .footer__link{
   color:rgba(233,236,245,.55);
@@ -420,6 +399,7 @@ body{
 
 .social{
   display:flex;
+  align-items:center;
   gap:14px;
 }
 .social__btn{
@@ -445,92 +425,7 @@ body{
     flex-direction:column;
     align-items:flex-start;
   }
-}
-/* =========================
-   FIX MAQUETTE (V1)
-   ========================= */
-
-/* 1) Logo en haut : s'assurer qu'il est visible + taille */
-.brand{
-  display: flex;
-  align-items: center;
-  color: #fff;            /* le SVG est en currentColor */
-  z-index: 10;
-}
-.brand__logo{
-  display: block;
-  width: 34px;            /* ajuste si besoin */
-  height: 34px;
-}
-
-/* 2) Soulignage "Bienvenue chez methodis" = largeur de la phrase (pas plus long) */
-.hero__welcome{
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero__underline{
-  width: 100%;
-  max-width: 100%;
-  margin-top: 14px;
-}
-
-/* 3) Bloc Paris : picto + gros, plus bas, texte aligné à sa hauteur */
-.cabinetAside{
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-}
-.cabinetAside__icon{
-  flex: 0 0 auto;
-  margin-top: 14px;       /* le “plus bas” */
-}
-.cabinetAside__icon img{
-  width: 78px;            /* plus gros */
-  height: auto;
-  display: block;
-}
-.cabinetAside__text{
-  margin: 0;              /* évite les décalages bizarres */
-}
-
-/* 4) Footer : tout sur une seule ligne */
-.footer__inner{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.footer__left{
-  display: flex;
-  align-items: center;
-  gap: 22px;
-}
-.footer__line{
-  margin: 0;
-}
-.social{
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.footer__right{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  white-space: nowrap;
-}
-
-/* Petit garde-fou mobile : autoriser le retour à la ligne proprement */
-@media (max-width: 760px){
-  .footer__inner{
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .footer__right{
-    white-space: normal;
+    white-space:normal;
   }
 }
