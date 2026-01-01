@@ -238,10 +238,10 @@ body{
 }
 .cabinetAside__icon{
   flex:0 0 auto;
-  margin-top:18px;        /* “plus bas” */
+  margin-top:80px;   /* descend réellement le picto */
 }
 .cabinetAside__icon img{
-  width:160px;   /* ~x2, ajustable */
+  width:120px;   /* plus grand, mais maîtrisé */
   height:auto;
   opacity:.9;
   display:block;
