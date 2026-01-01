@@ -115,7 +115,7 @@ body{
 .hero__inner{ text-align:center; padding-top:22px; }
 
 .hero__kicker{
-  margin-bottom:32px;
+  margin-bottom:45px;
   text-transform:uppercase;
   letter-spacing:.22em;
   font-weight:750;
@@ -134,7 +134,7 @@ body{
 
 /* ✅ underline EXACTEMENT largeur du texte */
 .hero__welcome{
-  margin-top:32px;
+  margin-top:45px;
   display:inline-flex;
   flex-direction:column;
   align-items:center;
