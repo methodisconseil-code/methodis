@@ -117,10 +117,10 @@ body{
 .hero__kicker{
   margin:0 0 22px;
   text-transform:uppercase;
-  letter-spacing:.26em;
+  letter-spacing:.22em;
   font-weight:750;
   color:rgba(233,236,245,.88);
-  font-size:clamp(12px, 2.1vw, 25px);
+  font-size:20px;   /* ← PLUS PETIT, visible immédiatement */
   white-space:nowrap;
 }
 
