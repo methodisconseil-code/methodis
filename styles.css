@@ -431,3 +431,7 @@ body{
 section[id] {
   scroll-margin-top: 100px;
 }
+/* Supprimer toutes les lignes entre sections */
+.sectionDivider{
+  display:none;
+}
