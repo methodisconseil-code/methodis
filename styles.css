@@ -364,7 +364,7 @@ body{
   padding:26px 0 34px;
 }
 
-.footer__inner{
+.footer__inner { column-gap: 28px; }
   display:grid;
   grid-template-columns: 1fr auto 1fr;
   align-items:center;
