@@ -241,7 +241,7 @@ body{
   margin-top:18px;        /* “plus bas” */
 }
 .cabinetAside__icon img{
-  width:88px;             /* plus gros */
+  width:160px;   /* ~x2, ajustable */
   height:auto;
   opacity:.9;
   display:block;
