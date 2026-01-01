@@ -134,7 +134,7 @@ body{
 
 /* ✅ underline EXACTEMENT largeur du texte */
 .hero__welcome{
-  margin-top:14px;
+  margin-top:45px;
   display:inline-flex;
   flex-direction:column;
   align-items:center;
