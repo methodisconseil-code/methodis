@@ -2,126 +2,133 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>methodis — Cabinet de conseil marketing</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
 
   <body>
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="brand" href="#top" aria-label="Retour en haut">
-          <img class="brand-logo" src="assets/logo_methodis_white.png" alt="methodis" />
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="brand" href="#top" aria-label="Accueil">
+          <img class="brand__logo" src="./assets/logo_methodis_white.png" alt="methodis" />
         </a>
 
-        <nav class="nav" aria-label="Navigation principale">
-          <a class="nav-link" href="#cabinet">CABINET</a>
-          <a class="nav-link" href="#offre">OFFRE</a>
-          <a class="nav-link" href="#approche">APPROCHE</a>
-          <a class="nav-link" href="#methode">MÉTHODE</a>
+        <nav class="nav" aria-label="Navigation">
+          <a class="nav__link" href="#cabinet">Cabinet</a>
+          <a class="nav__link" href="#offre">Offre</a>
+          <a class="nav__link" href="#approche">Approche</a>
+          <a class="nav__link" href="#methode">Méthode</a>
         </nav>
 
-        <a class="btn btn-pill btn-contact" href="#contact">CONTACT</a>
+        <a class="cta" href="#contact">Contact</a>
       </div>
-      <div class="header-rule" aria-hidden="true"></div>
     </header>
 
     <main id="top">
       <!-- HERO -->
       <section class="hero">
-        <div class="container hero-inner">
-          <p class="hero-kicker">VISION · STRUCTURE · PERFORMANCE</p>
+        <div class="wrap hero__wrap">
+          <p class="hero__kicker">VISION · STRUCTURE · PERFORMANCE</p>
 
-          <h1 class="hero-title">La stratégie au cœur de la transformation marketing.</h1>
+          <h1 class="hero__title">
+            La stratégie au cœur de la<br />
+            transformation marketing.
+          </h1>
 
-          <div class="hero-sub">
-            <p class="hero-welcome">Bienvenue chez <strong>methodis</strong></p>
-            <div class="hero-divider" aria-hidden="true"></div>
+          <div class="hero__welcome">
+            <p class="hero__welcomeText">Bienvenue chez <strong>methodis</strong></p>
+            <span class="hero__welcomeLine" aria-hidden="true"></span>
           </div>
 
-          <div class="pill-row" role="list" aria-label="Périmètre d’intervention">
-            <span class="pill" role="listitem">AUDIT &amp; DIAGNOSTIC</span>
-            <span class="pill" role="listitem">RECOMMANDATIONS</span>
-            <span class="pill" role="listitem">POSITIONNEMENT</span>
-            <span class="pill" role="listitem">CONDUITE DU CHANGEMENT</span>
+          <div class="chips" role="list">
+            <div class="chip" role="listitem">AUDIT &amp; DIAGNOSTIC</div>
+            <div class="chip" role="listitem">RECOMMANDATIONS</div>
+            <div class="chip" role="listitem">POSITIONNEMENT</div>
+            <div class="chip" role="listitem">CONDUITE DU CHANGEMENT</div>
           </div>
         </div>
       </section>
 
       <!-- CABINET -->
-      <section id="cabinet" class="section">
-        <div class="container">
-          <div class="two-col cabinet-grid">
-            <div>
-              <h2 class="h2">Le cabinet</h2>
+      <section class="section" id="cabinet">
+        <div class="wrap">
+          <h2 class="section__title">Le cabinet</h2>
 
-              <div class="text-block">
-                <p>
-                  Nous accompagnons les entreprises dans leurs transformations marketing et de communication.
-                </p>
-                <p>
-                  Nous concevons la stratégie et mettons à disposition des experts marketing et communication expérimentés
-                  qui travaillent directement avec vos équipes pour déployer les solutions.
-                </p>
-                <p>
-                  Un accompagnement sur mesure, stratégique et opérationnel, pour avancer clairement dans un contexte de changement.
-                </p>
-              </div>
+          <div class="cabinetGrid">
+            <div class="cabinetGrid__left">
+              <p>
+                Nous accompagnons les entreprises dans leurs transformations marketing et de communication.
+              </p>
+              <p>
+                Nous concevons la stratégie et mettons à disposition des experts marketing et communication expérimentés
+                qui travaillent directement avec vos équipes pour déployer les solutions.
+              </p>
+              <p>
+                Un accompagnement sur mesure, stratégique et opérationnel, pour avancer clairement dans un contexte de
+                changement.
+              </p>
             </div>
 
-            <div class="cabinet-right">
-              <img class="eiffel" src="assets/eiffel-tower%20(1).png" alt="" aria-hidden="true" />
-              <div class="text-block">
-                <p>
-                  Situé à Paris, nos équipes sont mobiles sur le bassin parisien. Nous préconisons un fonctionnement hybride
-                  pour faciliter l’intégration de nos experts à vos structures.
-                </p>
-              </div>
+            <div class="cabinetGrid__right">
+              <div class="eiffel" aria-hidden="true"></div>
+              <p>
+                Situé à Paris, nos équipes sont mobiles sur le bassin parisien. Nous préconisons un fonctionnement hybride
+                pour faciliter l’intégration de nos experts à vos structures.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- OFFRE -->
-      <section id="offre" class="section">
-        <div class="container">
-          <h2 class="h2">Notre offre</h2>
+      <section class="section" id="offre">
+        <div class="wrap">
+          <h2 class="section__title">Notre offre</h2>
 
-          <div class="cards-grid grid-2x2">
+          <div class="cards2x2">
             <article class="card">
-              <h3 class="card-title">
-                REPOSITIONNEMENT STRATÉGIQUE<br />ET BRANDING
+              <h3 class="card__title">
+                REPOSITIONNEMENT STRATÉGIQUE<br />
+                ET BRANDING
               </h3>
-              <p class="card-text">
-                Redéfinition des territoires de marque, clarification de la proposition de valeur, alignement entre vision, discours et expériences.
+              <p class="card__text">
+                Redéfinition des territoires de marque, clarification de la proposition de valeur, alignement entre vision,
+                discours et expériences.
               </p>
             </article>
 
             <article class="card">
-              <h3 class="card-title">
-                TRANSFORMATION MARKETING<br />ET ORGANISATIONNELLE
+              <h3 class="card__title">
+                TRANSFORMATION MARKETING<br />
+                ET ORGANISATIONNELLE
               </h3>
-              <p class="card-text">
-                Intégration de nouvelles offres, adaptation aux nouveaux usages, refonte des dispositifs marketing, accompagnement des changements d’équipes et de gouvernance.
+              <p class="card__text">
+                Intégration de nouvelles offres, adaptation aux nouveaux usages, refonte des dispositifs marketing,
+                accompagnement des changements d’équipes et de gouvernance.
               </p>
             </article>
 
             <article class="card">
-              <h3 class="card-title">
-                DIGITALISATION ET<br />INTÉGRATION DE L’IA
+              <h3 class="card__title">
+                DIGITALISATION ET<br />
+                INTÉGRATION DE L’IA
               </h3>
-              <p class="card-text">
-                Traduction concrète des enjeux digitaux et IA dans les pratiques marketing : process, outils, contenus, pilotage de la performance, acculturation des équipes.
+              <p class="card__text">
+                Traduction concrète des enjeux digitaux et IA dans les pratiques marketing : process, outils, contenus,
+                pilotage de la performance, acculturation des équipes.
               </p>
             </article>
 
             <article class="card">
-              <h3 class="card-title">
-                FORMATION ET MONTÉE<br />EN COMPÉTENCE
+              <h3 class="card__title">
+                FORMATION ET MONTÉE<br />
+                EN COMPÉTENCE
               </h3>
-              <p class="card-text">
-                Transmission pragmatique, contextualisée, orientée action. Nous formons pour rendre autonomes, pas dépendants.
+              <p class="card__text">
+                Transmission pragmatique, contextualisée, orientée action. Nous formons pour rendre autonomes, pas
+                dépendants.
               </p>
             </article>
           </div>
@@ -129,115 +136,138 @@
       </section>
 
       <!-- APPROCHE -->
-      <section id="approche" class="section">
-        <div class="container">
-          <h2 class="h2">Notre approche</h2>
-          <p class="lead">Premium et efficace : cadrage clair, exécution rapide, pilotage rigoureux.</p>
+      <section class="section" id="approche">
+        <div class="wrap">
+          <h2 class="section__title">Notre approche</h2>
+          <p class="section__subtitle">Premium et efficace : cadrage clair, exécution rapide, pilotage rigoureux.</p>
 
-          <!-- 6 blocs en grille 3 x 2 -->
-          <div class="cards-grid grid-3x2">
-            <article class="card card-compact">
-              <h3 class="card-mini-title">B2B : agences &amp; entreprises</h3>
-              <p class="card-text">Nous accompagnons les agences marketing/communication, les auto-entrepreneurs et les entreprises.</p>
+          <div class="approcheGrid">
+            <article class="pill">
+              <h3 class="pill__title">B2B : agences &amp; entreprises</h3>
+              <p class="pill__text">
+                Nous accompagnons les agences marketing/communication, les auto-entrepreneurs et les entreprises.
+              </p>
             </article>
 
-            <article class="card card-compact">
-              <h3 class="card-mini-title">Experts freelances seniors</h3>
-              <p class="card-text">Des profils confirmés, déployables directement dans vos équipes, au rythme de vos priorités.</p>
+            <article class="pill">
+              <h3 class="pill__title">Experts freelances seniors</h3>
+              <p class="pill__text">Des profils confirmés, déployables directement dans vos équipes, au rythme de vos priorités.</p>
             </article>
 
-            <article class="card card-compact">
-              <h3 class="card-mini-title">Intervention dans votre structure</h3>
-              <p class="card-text">Un fonctionnement fluide : collaboration interne, rituels, livrables actionnables, impact visible.</p>
+            <article class="pill">
+              <h3 class="pill__title">Intervention dans votre structure</h3>
+              <p class="pill__text">
+                Un fonctionnement fluide : collaboration interne, rituels, livrables actionnables, impact visible.
+              </p>
             </article>
 
-            <article class="card card-compact">
-              <h3 class="card-mini-title">De l’analyse à l’exécution</h3>
-              <p class="card-text">Audit, recommandations, déploiement priorisé, puis stabilisation et conduite du changement.</p>
+            <article class="pill">
+              <h3 class="pill__title">De l’analyse à l’exécution</h3>
+              <p class="pill__text">Audit, recommandations, déploiement priorisé, puis stabilisation et conduite du changement.</p>
             </article>
 
-            <article class="card card-compact">
-              <h3 class="card-mini-title">Conduite du changement</h3>
-              <p class="card-text">On accompagne la transformation jusqu’au bilan, au suivi et à l’adoption durable des nouvelles pratiques.</p>
+            <article class="pill">
+              <h3 class="pill__title">Conduite du changement</h3>
+              <p class="pill__text">
+                On accompagne la transformation jusqu’au bilan, au suivi et à l’adoption durable des nouvelles pratiques.
+              </p>
             </article>
 
-            <article class="card card-compact">
-              <h3 class="card-mini-title">Pilotage</h3>
-              <p class="card-text">Indicateurs, gouvernance et rituels : une trajectoire claire et mesurable.</p>
+            <article class="pill">
+              <h3 class="pill__title">Pilotage</h3>
+              <p class="pill__text">Mesure, arbitrages, priorisation et gouvernance : une conduite orientée résultats.</p>
             </article>
           </div>
         </div>
       </section>
 
       <!-- MÉTHODE -->
-      <section id="methode" class="section">
-        <div class="container">
-          <h2 class="h2">Notre méthode</h2>
-          <p class="lead">Faciliter l’intervention dans votre structure, avec une approche orientée résultats, mesurables et pilotables.</p>
+      <section class="section" id="methode">
+        <div class="wrap">
+          <h2 class="section__title">Notre méthode</h2>
+          <p class="section__subtitle">
+            Faciliter l’intervention dans votre structure, avec une approche orientée résultats, mesurables et pilotables.
+          </p>
 
-          <div class="method-grid">
-            <article class="method-card">
-              <div class="method-n">01.</div>
-              <div class="method-title">AUDIT</div>
-              <p class="method-text">Analyse de l’existant avec le prisme résultat.</p>
+          <div class="steps">
+            <article class="step">
+              <div class="step__num">01.</div>
+              <h3 class="step__title">AUDIT</h3>
+              <p class="step__text">Analyse de l’existant avec le prisme résultat.</p>
             </article>
 
-            <article class="method-card">
-              <div class="method-n">02.</div>
-              <div class="method-title">RECOMMANDATION</div>
-              <p class="method-text">Ajustements ciblés pour favoriser la performance.</p>
+            <article class="step">
+              <div class="step__num">02.</div>
+              <h3 class="step__title">RECOMMANDATION</h3>
+              <p class="step__text">Ajustements ciblés pour favoriser la performance.</p>
             </article>
 
-            <article class="method-card">
-              <div class="method-n">03.</div>
-              <div class="method-title">DÉPLOIEMENT</div>
-              <p class="method-text">Actions déployées par priorités business.</p>
+            <article class="step">
+              <div class="step__num">03.</div>
+              <h3 class="step__title">DÉPLOIEMENT</h3>
+              <p class="step__text">Actions déployées par priorités business.</p>
             </article>
 
-            <article class="method-card">
-              <div class="method-n">04.</div>
-              <div class="method-title">PILOTAGE</div>
-              <p class="method-text">Accompagnement du changement.</p>
+            <article class="step">
+              <div class="step__num">04.</div>
+              <h3 class="step__title">PILOTAGE</h3>
+              <p class="step__text">Accompagnement du changement.</p>
             </article>
           </div>
         </div>
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="section section-contact">
-        <div class="container contact-row">
-          <div class="contact-left">
-            <h2 class="h2">Contact</h2>
-            <p class="contact-sub">Une bonne stratégie commence toujours par un échange.<br />Êtes-vous prêt à lancer la discussion ?</p>
+      <section class="section" id="contact">
+        <div class="wrap contactRow">
+          <div class="contactRow__left">
+            <h2 class="section__title">Contact</h2>
+            <p class="contactRow__text">Une bonne stratégie commence toujours par un échange.</p>
+            <p class="contactRow__text">Êtes-vous prêt à lancer la discussion ?</p>
           </div>
 
-          <div class="contact-right">
-            <a class="btn btn-pill btn-wide" href="mailto:contact@methodis.fr">ENVOYER UN MESSAGE</a>
+          <div class="contactRow__right">
+            <a class="cta cta--white" href="mailto:contact@methodis.fr">ENVOYER UN MESSAGE</a>
           </div>
         </div>
       </section>
-    </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-rule" aria-hidden="true"></div>
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="wrap footer__inner">
+          <div class="footer__left">
+            <span>© 2026 methodis — Cabinet de conseil marketing</span>
+          </div>
 
-      <div class="container footer-inner">
-        <div class="footer-left">
-          <div class="footer-copy">© 2026 methodis — Cabinet de conseil marketing</div>
+          <div class="footer__social" aria-label="Réseaux sociaux">
+            <a class="socialBtn" href="#" aria-label="LinkedIn">
+              <!-- LinkedIn -->
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 23.5h4V7.98h-4V23.5ZM8 7.98h3.83v2.12h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v9.36h-4v-8.3c0-1.98-.04-4.52-2.75-4.52-2.75 0-3.17 2.15-3.17 4.38v8.44H8V7.98Z"
+                />
+              </svg>
+            </a>
 
-          <div class="footer-social" aria-label="Réseaux sociaux">
-            <a class="social-btn" href="#" aria-label="LinkedIn">in</a>
-            <a class="social-btn" href="#" aria-label="Instagram">◎</a>
+            <a class="socialBtn" href="#" aria-label="Instagram">
+              <!-- Instagram -->
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9Zm4.5 4.5A5 5 0 1 1 7 13.5 5 5 0 0 1 12 8.5Zm0 2A3 3 0 1 0 15 13.5 3 3 0 0 0 12 10.5Zm6.1-3.6a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1Z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <div class="footer__right">
+            <a href="#" class="footer__link">Mentions légales</a>
+            <span class="footer__sep">•</span>
+            <a href="#" class="footer__link">Politique de confidentialité</a>
           </div>
         </div>
-
-        <div class="footer-right">
-          <a href="#" class="footer-link">Mentions légales</a>
-          <span class="footer-dot">•</span>
-          <a href="#" class="footer-link">Politique de confidentialité</a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </main>
   </body>
 </html>
