@@ -426,3 +426,7 @@ body{
     white-space:normal;
   }
 }
+/* Offset propre pour les ancres (menu sticky) */
+section[id] {
+  scroll-margin-top: 120px;
+}
