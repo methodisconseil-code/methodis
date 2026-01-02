@@ -483,3 +483,109 @@ section[id] {
   color: #fff;
   text-decoration: underline;
 }
+/* ============================
+   MOBILE FIXES
+   ============================ */
+@media (max-width: 680px){
+
+  /* TOPBAR : logo + menu + contact visibles */
+  .topbar__inner{
+    height:auto;
+    padding:14px 0 12px;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .brand__logo{
+    height:38px;
+  }
+
+  .topbar__right{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+  }
+
+  .nav{
+    gap:18px;
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width:none;
+  }
+  .nav::-webkit-scrollbar{ display:none; }
+
+  .nav__link{
+    font-size:11px;
+    letter-spacing:.16em;
+    white-space:nowrap;
+  }
+
+  .btn--contact{
+    padding:10px 14px;
+    font-size:11px;
+    letter-spacing:.16em;
+    white-space:nowrap;
+  }
+
+  /* HERO kicker : devient responsive (plus coupé) */
+  .hero__kicker{
+    white-space:normal;
+    font-size:14px;
+    line-height:1.35;
+    padding:0 6px;
+    text-align:center;
+  }
+
+  /* CABINET : tour Eiffel centrée + texte dessous */
+  .cabinet__right{
+    margin-top:28px;       /* au lieu de 120px */
+    justify-content:center;
+  }
+
+  .cabinetAside{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:18px;
+    margin-top:0;
+  }
+
+  .cabinetAside__icon img{
+    width:110px; /* ajustable si tu veux un peu + petit/grand */
+  }
+
+  .cabinetAside__text{
+    max-width:none;
+  }
+
+  /* FOOTER : tout centré en 3 lignes */
+  .footer__inner{
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+
+  .footer__left,
+  .footer__right{
+    flex:0;
+    width:100%;
+    justify-content:center;
+    text-align:center;
+    white-space:normal;
+  }
+
+  .footer__line{
+    text-align:center;
+  }
+
+  .social{
+    justify-content:center;
+  }
+
+  .footer__right{
+    flex-wrap:wrap;
+  }
+}
