@@ -450,3 +450,34 @@ section[id] {
 .sectionDivider{
   display:none;
 }
+/* ============================
+   MENTIONS LÉGALES
+   ============================ */
+
+.legal{
+  padding: 120px 0 140px;
+}
+
+.legal h1{
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 850;
+  margin-bottom: 32px;
+}
+
+.legal h2{
+  font-size: 20px;
+  font-weight: 750;
+  margin: 48px 0 14px;
+}
+
+.legal p{
+  font-size: 18px;
+  line-height: 1.85;
+  color: rgba(233,236,245,.8);
+  max-width: 75ch;
+}
+
+.legal a{
+  color: #fff;
+  text-decoration: underline;
+}
