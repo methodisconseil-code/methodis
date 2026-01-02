@@ -569,7 +569,10 @@ section[id] {
   .cabinetAside__text{
     max-width:none;
   }
-
+@media (max-width: 680px){
+  .cabinetAside--remote .cabinetAside__icon img{
+    width:88px;
+  }
   /* FOOTER : tout centré en 3 lignes */
   .footer__inner{
     flex-direction:column;
