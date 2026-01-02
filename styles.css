@@ -227,7 +227,7 @@ body{
 .cabinet__right{
   display:flex;
   justify-content:flex-start;
-  margin-top:25px
+  margin-top:110px; /* aligne le 1er texte à droite avec le 1er texte à gauche */
 }
 
 /* ✅ Picto plus gros, plus bas, et texte aligné “à la hauteur du picto” */
@@ -252,10 +252,19 @@ body{
   opacity:.9;
   display:block;
 }
+/* 1) Colonne icône fixe : les textes démarrent au même endroit */
+.cabinetAside__icon{
+  width:120px;              /* même largeur que la Tour Eiffel */
+  display:flex;
+  justify-content:center;   /* centre l’icône dans sa colonne */
+}
+
+/* 2) Picto distanciel plus petit */
 .cabinetAside--remote .cabinetAside__icon img{
-  width:92px;
+  width:72px;               /* plus petit que 92px */
   height:auto;
 }
+
 .cabinetAside__text{
   margin:0;
   color:rgba(233,236,245,.78);
@@ -568,11 +577,11 @@ section[id] {
 
   .cabinetAside__text{
     max-width:none;
-  }
-@media (max-width: 680px){
+
   .cabinetAside--remote .cabinetAside__icon img{
-    width:88px;
+    width:72px; /* ou 80px si tu veux un peu plus grand sur mobile */
   }
+  
   /* FOOTER : tout centré en 3 lignes */
   .footer__inner{
     flex-direction:column;
