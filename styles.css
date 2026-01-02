@@ -227,7 +227,7 @@ body{
 .cabinet__right{
   display:flex;
   justify-content:flex-start;
-  margin-top:110px; /* aligne le 1er texte à droite avec le 1er texte à gauche */
+  margin-top:90px; /* aligne le 1er texte à droite avec le 1er texte à gauche */
 }
 
 /* ✅ Picto plus gros, plus bas, et texte aligné “à la hauteur du picto” */
