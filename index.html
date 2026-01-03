@@ -528,5 +528,199 @@
         </div>
       </footer>
     </main>
+    <script>
+(() => {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  const steps = Array.from(form.querySelectorAll(".formStep"));
+  const toast = document.getElementById("formToast");
+  const recapEl = document.getElementById("recap");
+
+  const getStep = (n) => steps.find(s => Number(s.dataset.step) === n);
+
+  const setToast = (msg) => { if (toast) toast.textContent = msg || ""; };
+
+  const requiredFieldsOf = (stepEl) => {
+    const list = (stepEl.dataset.required || "").split(",").map(s => s.trim()).filter(Boolean);
+    return list.map(name => form.elements[name]).filter(Boolean);
+  };
+
+  const isFilled = (field) => ((field?.value || "").trim().length > 0);
+
+  const validateStep = (stepEl) => {
+    const req = requiredFieldsOf(stepEl);
+    for (const field of req) {
+      if (!isFilled(field)) return { ok: false, field, reason: "required" };
+      if (typeof field.checkValidity === "function" && !field.checkValidity()) {
+        return { ok: false, field, reason: "invalid" };
+      }
+    }
+    return { ok: true };
+  };
+
+  const collapse = (stepEl) => {
+    stepEl.classList.add("is-collapsed");
+    stepEl.querySelector(".formStep__header")?.setAttribute("aria-expanded", "false");
+  };
+
+  const expand = (stepEl) => {
+    stepEl.classList.remove("is-collapsed");
+    stepEl.classList.remove("is-locked");
+    stepEl.querySelector(".formStep__header")?.setAttribute("aria-expanded", "true");
+  };
+
+  const lock = (stepEl) => {
+    stepEl.classList.add("is-locked");
+    stepEl.classList.add("is-collapsed");
+    stepEl.querySelector(".formStep__header")?.setAttribute("aria-expanded", "false");
+  };
+
+  const markDone = (stepEl, done) => {
+    stepEl.classList.toggle("is-done", !!done);
+    const status = stepEl.querySelector(".formStep__status");
+    if (status) status.textContent = done ? "Rempli" : "";
+  };
+
+  const focusField = (field) => {
+    field?.focus?.();
+    field?.scrollIntoView?.({ behavior: "smooth", block: "center" });
+  };
+
+  const unlockNext = (currentStepNumber) => {
+    const next = getStep(currentStepNumber + 1);
+    if (!next) return;
+    next.classList.remove("is-locked");
+  };
+
+  const stepNumber = (el) => Number(el.dataset.step);
+
+  // init
+  expand(getStep(1));
+  steps.slice(1).forEach(lock);
+
+  // header click
+  steps.forEach(stepEl => {
+    const header = stepEl.querySelector(".formStep__header");
+    header?.addEventListener("click", () => {
+      if (stepEl.classList.contains("is-locked")) return;
+      const isCollapsed = stepEl.classList.contains("is-collapsed");
+      if (isCollapsed) expand(stepEl);
+      else collapse(stepEl);
+    });
+  });
+
+  // next/prev
+  form.addEventListener("click", (e) => {
+    const nextBtn = e.target.closest("[data-next]");
+    const prevBtn = e.target.closest("[data-prev]");
+    if (!nextBtn && !prevBtn) return;
+
+    const current = e.target.closest(".formStep");
+    if (!current) return;
+    const n = stepNumber(current);
+
+    if (prevBtn) {
+      setToast("");
+      const prev = getStep(n - 1);
+      if (prev && !prev.classList.contains("is-locked")) {
+        expand(prev);
+        collapse(current);
+      }
+      return;
+    }
+
+    if (nextBtn) {
+      setToast("");
+      const result = validateStep(current);
+      if (!result.ok) {
+        markDone(current, false);
+        setToast(result.reason === "invalid"
+          ? "Un champ semble invalide (ex. email)."
+          : "Il manque un ou plusieurs champs obligatoires (*)");
+        expand(current);
+        focusField(result.field);
+        return;
+      }
+
+      markDone(current, true);
+      collapse(current);
+
+      unlockNext(n);
+      const next = getStep(n + 1);
+      if (next) expand(next);
+
+      if (n + 1 === 5) buildRecap();
+    }
+  });
+
+  function buildRecap() {
+    if (!recapEl) return;
+    const v = (name) => (form.elements[name]?.value || "").trim();
+
+    const sections = [
+      { title: "Votre carte de visite", items: [["Nom", v("nom")], ["Prénom", v("prenom")], ["Entreprise", v("entreprise")]] },
+      { title: "Coordonnées de contact", items: [["Email", v("email")], ["Téléphone", v("telephone")], ["Site", v("site")]] },
+      { title: "Votre message", items: [["Sujet", v("sujet")], ["Missions souhaitées", v("missions")], ["Message", v("message")]] },
+      { title: "Disponibilités", items: [["Pour être appelé", v("dispo_appel")], ["Début de mission", v("debut_mission")]] },
+    ];
+
+    recapEl.innerHTML = sections.map(s => {
+      const items = s.items
+        .filter(([_, val]) => val)
+        .map(([k, val]) => `<p><strong>${escapeHtml(k)} :</strong> ${escapeHtml(val)}</p>`)
+        .join("");
+      return `<h4>${escapeHtml(s.title)}</h4>${items || "<p>—</p>"}`;
+    }).join("");
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  // submit (sans endpoint: message pédagogique)
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    setToast("");
+
+    const recapStep = getStep(5);
+    const result = validateStep(recapStep);
+    if (!result.ok) {
+      setToast("Avant d’envoyer, il manque un champ obligatoire (*) dans les étapes précédentes.");
+      focusField(result.field);
+      return;
+    }
+
+    const endpoint = form.getAttribute("action");
+    if (!endpoint) {
+      setToast("Pour activer l’envoi, ajoute l’URL d’un service (Formspree/Getform/Basin…) dans action=\"...\".");
+      return;
+    }
+
+    try {
+      const fd = new FormData(form);
+      const res = await fetch(endpoint, { method: "POST", body: fd, headers: { "Accept": "application/json" }});
+      if (!res.ok) throw new Error("HTTP " + res.status);
+
+      setToast("Message envoyé ✅ Merci, je reviens vers vous rapidement.");
+      form.reset();
+
+      // reset state
+      steps.forEach(s => s.classList.remove("is-done","is-collapsed","is-locked"));
+      expand(getStep(1));
+      steps.slice(1).forEach(lock);
+
+    } catch (err) {
+      setToast("Oups — l’envoi a échoué. Vous pouvez réessayer ou me contacter autrement.");
+    }
+  });
+})();
+</script>
+
   </body>
 </html>
