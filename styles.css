@@ -756,4 +756,84 @@ section[id] {
   opacity: 0.65;
   margin-top: 10px;
 }
+/* ============================
+   FORMULAIRE CONTACT (STEP)
+   ============================ */
+
+.step-form {
+  width: 100%;
+  max-width: 720px;
+}
+
+.formStep {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,.03);
+}
+
+.formStep__header {
+  all: unset;
+  cursor: pointer;
+  width: 100%;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formStep__title {
+  font-weight: 750;
+  font-size: 14px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.formStep__status {
+  font-size: 12px;
+  opacity: .6;
+}
+
+.formStep__panel {
+  padding: 22px;
+  display: block;
+}
+
+.formStep.is-collapsed .formStep__panel {
+  display: none;
+}
+
+.formStep.is-locked {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.formGrid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.formField span {
+  font-size: 13px;
+  color: rgba(233,236,245,.75);
+}
+
+.formField input,
+.formField textarea {
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color
 
