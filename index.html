@@ -324,21 +324,160 @@
       </section>
 
       <!-- CONTACT -->
-      <section class="section contact" id="contact">
-        <div class="wrap contact__inner">
-          <div class="contact__copy">
-            <h2 class="h2">Contact</h2>
-            <p class="p">Un repositionnement efficace commence toujours par un échange.</p>
-            <p class="p p--strong">Êtes-vous prêt à lancer la discussion ?</p>
-          </div>
+<section class="section contact" id="contact">
+  <div class="wrap contact__inner">
+    <div class="contact__copy">
+      <h2 class="h2">Contact</h2>
+      <p class="p">Un repositionnement efficace commence toujours par un échange.</p>
+      <p class="p p--strong">Êtes-vous prêt à lancer la discussion ?</p>
+    </div>
 
-          <div class="contact__cta">
-            <a class="btn btn--primary" href="mailto:methodis.conseil@gmail.com">
-              Envoyer un message
-            </a>
+    <!-- Le formulaire (à la place du bouton mailto) -->
+    <div class="contact__form">
+      <form id="contactForm" class="step-form" action="" method="POST" novalidate>
+
+        <!-- 1 -->
+        <div class="formStep" data-step="1" data-required="nom,prenom,entreprise">
+          <button type="button" class="formStep__header" aria-expanded="true">
+            <span class="formStep__title">1. Votre carte de visite</span>
+            <span class="formStep__status" aria-live="polite"></span>
+          </button>
+
+          <div class="formStep__panel">
+            <div class="formGrid2">
+              <label class="formField">
+                <span>Nom*</span>
+                <input name="nom" autocomplete="family-name" required />
+              </label>
+
+              <label class="formField">
+                <span>Prénom*</span>
+                <input name="prenom" autocomplete="given-name" required />
+              </label>
+            </div>
+
+            <label class="formField">
+              <span>Entreprise*</span>
+              <input name="entreprise" autocomplete="organization" required />
+            </label>
+
+            <div class="formActions">
+              <button type="button" class="btn btn--primary formBtn" data-next>Continuer</button>
+            </div>
           </div>
         </div>
-      </section>
+
+        <!-- 2 -->
+        <div class="formStep is-locked" data-step="2" data-required="email">
+          <button type="button" class="formStep__header" aria-expanded="false">
+            <span class="formStep__title">2. Vos coordonnées de contact</span>
+            <span class="formStep__status" aria-live="polite"></span>
+          </button>
+
+          <div class="formStep__panel">
+            <label class="formField">
+              <span>Votre adresse email*</span>
+              <input name="email" type="email" autocomplete="email" required />
+            </label>
+
+            <label class="formField">
+              <span>Votre numéro de téléphone</span>
+              <input name="telephone" type="tel" autocomplete="tel" />
+            </label>
+
+            <label class="formField">
+              <span>Votre site internet</span>
+              <input name="site" type="url" placeholder="https://…" />
+            </label>
+
+            <div class="formActions">
+              <button type="button" class="btn formBtn" data-prev>Retour</button>
+              <button type="button" class="btn btn--primary formBtn" data-next>Continuer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="formStep is-locked" data-step="3" data-required="sujet">
+          <button type="button" class="formStep__header" aria-expanded="false">
+            <span class="formStep__title">3. Votre message</span>
+            <span class="formStep__status" aria-live="polite"></span>
+          </button>
+
+          <div class="formStep__panel">
+            <label class="formField">
+              <span>Sujet*</span>
+              <input name="sujet" required />
+            </label>
+
+            <label class="formField">
+              <span>Missions souhaitées</span>
+              <input name="missions" placeholder="ex. repositionnement, audit, stratégie…" />
+            </label>
+
+            <label class="formField">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Décrivez votre besoin…"></textarea>
+            </label>
+
+            <div class="formActions">
+              <button type="button" class="btn formBtn" data-prev>Retour</button>
+              <button type="button" class="btn btn--primary formBtn" data-next>Continuer</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="formStep is-locked" data-step="4" data-required="">
+          <button type="button" class="formStep__header" aria-expanded="false">
+            <span class="formStep__title">4. Vos disponibilités</span>
+            <span class="formStep__status" aria-live="polite"></span>
+          </button>
+
+          <div class="formStep__panel">
+            <label class="formField">
+              <span>Pour être appelé (si numéro renseigné)</span>
+              <input name="dispo_appel" placeholder="ex. lun–jeu 9h–12h / après 18h…" />
+            </label>
+
+            <label class="formField">
+              <span>Pour un début de mission souhaité</span>
+              <input name="debut_mission" placeholder="ex. dès février / Q2 / date…" />
+            </label>
+
+            <div class="formActions">
+              <button type="button" class="btn formBtn" data-prev>Retour</button>
+              <button type="button" class="btn btn--primary formBtn" data-next>Voir le récapitulatif</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="formStep is-locked" data-step="5" data-required="nom,prenom,entreprise,email,sujet">
+          <button type="button" class="formStep__header" aria-expanded="false">
+            <span class="formStep__title">5. Récapitulatif</span>
+            <span class="formStep__status" aria-live="polite"></span>
+          </button>
+
+          <div class="formStep__panel">
+            <div id="recap" class="recap"></div>
+
+            <div class="formActions">
+              <button type="button" class="btn formBtn" data-prev>Retour</button>
+              <button type="submit" class="btn btn--primary formBtn">Envoyer</button>
+            </div>
+
+            <p class="fineprint">
+              En envoyant ce message, vous acceptez d’être recontacté dans le cadre de votre demande.
+            </p>
+          </div>
+        </div>
+
+        <div id="formToast" class="toast" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
 
       <!-- FOOTER -->
       <footer class="footer">
