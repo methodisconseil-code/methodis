@@ -339,6 +339,9 @@
       action="https://formspree.io/f/xzdzvlee"
       method="POST"
       novalidate>
+        <input type="hidden" name="_subject" id="emailSubject" value="Nouveau contact — methodis" />
+<input type="hidden" name="_template" value="table" />
+<input type="text" name="_gotcha" style="display:none" />
 
         <!-- 1 -->
         <div class="formStep" data-step="1" data-required="nom,prenom,entreprise">
@@ -687,42 +690,54 @@
       .replaceAll("'", "&#039;");
   }
 
-  // submit (sans endpoint: message pédagogique)
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    setToast("");
+  // submit (Formspree)
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  setToast("");
 
-    const recapStep = getStep(5);
-    const result = validateStep(recapStep);
-    if (!result.ok) {
-      setToast("Avant d’envoyer, il manque un champ obligatoire (*) dans les étapes précédentes.");
-      focusField(result.field);
-      return;
+  const recapStep = getStep(5);
+  const result = validateStep(recapStep);
+  if (!result.ok) {
+    setToast("Avant d’envoyer, il manque un champ obligatoire (*) dans les étapes précédentes.");
+    focusField(result.field);
+    return;
+  }
+
+  const endpoint = form.getAttribute("action");
+  if (!endpoint) {
+    setToast("Pour activer l’envoi, ajoute l’URL Formspree dans action=\"...\".");
+    return;
+  }
+
+  try {
+    // Met le champ "Sujet" dans l’objet de l’email reçu
+    const subj = (form.elements["sujet"]?.value || "").trim();
+    const hidden = document.getElementById("emailSubject");
+    if (hidden && subj) {
+      hidden.value = "Contact methodis — " + subj;
     }
 
-    const endpoint = form.getAttribute("action");
-    if (!endpoint) {
-      setToast("Pour activer l’envoi, ajoute l’URL d’un service (Formspree/Getform/Basin…) dans action=\"...\".");
-      return;
-    }
+    const fd = new FormData(form);
+    const res = await fetch(endpoint, {
+      method: "POST",
+      body: fd,
+      headers: { "Accept": "application/json" }
+    });
 
-    try {
-      const fd = new FormData(form);
-      const res = await fetch(endpoint, { method: "POST", body: fd, headers: { "Accept": "application/json" }});
-      if (!res.ok) throw new Error("HTTP " + res.status);
+    if (!res.ok) throw new Error("HTTP " + res.status);
 
-      setToast("Message envoyé ✅ Merci, je reviens vers vous rapidement.");
-      form.reset();
+    setToast("Message envoyé ✅ Merci, je reviens vers vous rapidement.");
+    form.reset();
 
-      // reset state
-      steps.forEach(s => s.classList.remove("is-done","is-collapsed","is-locked"));
-      expand(getStep(1));
-      steps.slice(1).forEach(lock);
+    // Reset visuel du formulaire
+    steps.forEach(s => s.classList.remove("is-done","is-collapsed","is-locked"));
+    expand(getStep(1));
+    steps.slice(1).forEach(lock);
 
-    } catch (err) {
-      setToast("Oups — l’envoi a échoué. Vous pouvez réessayer ou me contacter autrement.");
-    }
-  });
+  } catch (err) {
+    setToast("Oups — l’envoi a échoué. Vous pouvez réessayer ou me contacter autrement.");
+  }
+});
 })();
 </script>
 
